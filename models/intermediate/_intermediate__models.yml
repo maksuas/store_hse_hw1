@@ -24,3 +24,38 @@ models:
         description: "Число неуспешных операций."
       - name: pending_operations_count
         description: "Число операций в ожидании."
+  - name: int_product_category_hierarchy
+    description: >
+      Иерархия категорий товаров. Одна строка соответствует одной категории.
+      Содержит информацию о непосредственном родителе, корневой категории
+      и уровне вложенности. Дерево строится рекурсивно на основе parent_category_id.
+    columns:
+      - name: category_id
+        description: "Уникальный идентификатор категории."
+
+      - name: parent_category_id
+        description: >
+          Идентификатор непосредственной родительской категории.
+          Для корневых категорий значение NULL.
+
+      - name: category_name
+        description: "Название текущей категории."
+
+      - name: parent_category_name
+        description: >
+          Название непосредственной родительской категории.
+          Для корневых категорий значение NULL.
+
+      - name: root_category_id
+        description: >
+          Идентификатор корневой категории верхнего уровня.
+          Для корневой категории совпадает с её собственным category_id.
+
+      - name: root_category_name
+        description: >
+          Название корневой категории верхнего уровня (Electronics или Home).
+
+      - name: category_level
+        description: >
+          Уровень вложенности категории. Корневые категории имеют уровень 1,
+          дочерние категории — уровень 2 и далее.

@@ -5,7 +5,7 @@ name: dbt_shop
 services:
   # Источник: OLTP-база интернет-магазина, те же данные, что в практике 2.
   postgres:
-    image: postgres:16-alpine
+    image: postgres:16-bookworm
     environment:
       POSTGRES_DB: shop
       POSTGRES_USER: student
